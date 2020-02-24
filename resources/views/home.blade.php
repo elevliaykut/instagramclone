@@ -8,7 +8,7 @@
         </div>
         <div class="col-9 pt-5">
             <div>
-                <h1>elevliaykut</h1>
+                <h1>{{ auth()->user()->username }}</h1>
             </div>
             <div class="d-flex">
                 <div class="pr-5"><strong>100</strong> posts</div>
