@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-8 offset-2">
             <div class="form-group row">
-                <label for="caption" class="col-md-4 col-form-label text-md-right">Image Caption</label>
+                <label for="caption" class="col-md-4 col-form-label text-md-right">Post Caption</label>
                 <div class="col-md-6">
                     <input id="caption" type="text" class="form-control @error('caption') is-invalid @enderror" name="caption" value="{{ old('caption') }}" autocomplete="caption" autofocus>
                     @error('caption')
