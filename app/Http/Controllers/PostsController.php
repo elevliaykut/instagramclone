@@ -10,4 +10,8 @@ class PostsController extends Controller
     {
         return view('posts.create');
     }
+    public function store()
+    {
+        dd(request()->all());
+    }
 }
