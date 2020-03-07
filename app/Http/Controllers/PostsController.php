@@ -21,10 +21,15 @@ class PostsController extends Controller
             'image' => ['required', 'image'],
         ]);
 
-        dd(request('image')->store('uploads','public')); //store image under the path: store/public/uploads
+        $imagePath = request('image')->store('uploads', 'public'); //store image under the path: store/public/uploads
 
-        auth()->user()->posts()->create($data);
+        auth()->user()->posts()->create([
+            'caption' => $data['caption'],
+            'image' => $imagePath,
+        ]);
 
-        dd(request()->all()); // see all data from form in the array.
+        // dd(request()->all()); // see all data from form in the array.
+
+        return redirect('/profile/' .auth()->user()->id); // redirect url
     }
 }
