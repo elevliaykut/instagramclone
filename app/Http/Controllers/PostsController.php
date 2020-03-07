@@ -18,7 +18,7 @@ class PostsController extends Controller
         ]);
 
         auth()->user()->posts()->create($data);
-        
+
         dd(request()->all()); // see all data from form in the array.
     }
 }
