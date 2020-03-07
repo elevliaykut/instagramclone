@@ -14,7 +14,7 @@ class PostsController extends Controller
     {
         $data = request()->validate([
             'caption' => 'required',
-            'image' => 'required',
+            'image' => ['required', 'image'],
         ]);
 
         dd(request()->all()); // see all data from form in the array.
