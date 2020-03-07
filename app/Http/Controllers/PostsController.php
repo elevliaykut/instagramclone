@@ -12,6 +12,11 @@ class PostsController extends Controller
     }
     public function store()
     {
-        dd(request()->all());
+        $data = request()->validate([
+            'caption' => 'required',
+            'image' => 'required',
+        ]);
+
+        dd(request()->all()); // see all data from form in the array.
     }
 }
