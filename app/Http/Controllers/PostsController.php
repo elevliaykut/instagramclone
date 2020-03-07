@@ -10,7 +10,6 @@ class PostsController extends Controller
     {
         $this->middleware('auth');
     }
-
     public function create()
     {
         return view('posts.create');
