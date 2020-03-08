@@ -17,6 +17,6 @@ class ProfilesController extends Controller
     public function edit(User $user)
     {
         // passing user variables with compact to edit.blade.pph
-        return view('profile.edit',compact('user'));
+        return view('profiles.edit',compact('user'));
     }
 }
