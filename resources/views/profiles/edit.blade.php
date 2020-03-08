@@ -14,7 +14,13 @@
 
                 <div class="form-group row">
                     <label for="title" class="col-md-4 col-form-label">Title</label>
-                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" autocomplete="title" autofocus>
+                    <input id="title" 
+                            type="text" 
+                            class="form-control @error('title') is-invalid @enderror" 
+                            name="title" 
+                            value="{{ old('title') ?? $user->profile->title }}" 
+                            autocomplete="title" 
+                            autofocus>
                     @error('title')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -52,7 +58,7 @@
                 </div>
 
                 <div class="row pt-4">
-                    <button class="btn btn-primary">Add New Post</button>
+                    <button class="btn btn-primary">Save Profile</button>
                 </div>
 
             </div>
