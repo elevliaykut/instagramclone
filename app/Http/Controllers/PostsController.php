@@ -38,11 +38,9 @@ class PostsController extends Controller
         return redirect('/profile/' .auth()->user()->id); // redirect url
     }
 
-    // Eğer böyle bir post id varsa göster
-
     public function show(\App\Post $post)   
     {
-        // Compact burda eğer böyle bir id' ye sahip post varsa show.blade.php yi döndür.
+        // passing posts variables to show.blade.php with compact
 
         return view('posts.show', compact('post'));
     }
