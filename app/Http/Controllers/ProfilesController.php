@@ -6,6 +6,8 @@ use App\User;
 
 use Illuminate\Http\Request;
 
+use Intervention\Image\Facades\Image;
+
 class ProfilesController extends Controller
 {
     public function index(User $user)
@@ -16,34 +18,49 @@ class ProfilesController extends Controller
 
     public function edit(User $user)
     {
-        $this->authorize('update',$user->profile);
+        $this->authorize('update', $user->profile);
 
         // passing user variables with compact to edit.blade.pph
-        return view('profiles.edit',compact('user'));
+        return view('profiles.edit', compact('user'));
     }
 
     public function update(User $user)
     {
-        $this->authorize('update',$user->profile);
+        $this->authorize('update', $user->profile);
 
         $data = request()->validate([
-            'title'=> 'required',
-            'description'=> 'required',
+            'title' => 'required',
+            'description' => 'required',
             'url' => 'url',
             'image' => '',
         ]);
 
-        // dd($data);
-        
-        // save method
+        /*
+
+        save method
         
         auth()->user()->profile()->create([
             'title'=>$data['title'],
             'description'=>$data['description'],
             'url'=>$data['url'],
+        
         ]);
+        
+        */
 
-        auth()->$user->profile->update($data);
+        if (request('image')) {
+            $imagePath = request('image')->store('profile','public');
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
+            $image->save();
+        }
+
+        // dd($data);
+
+        auth()->$user->profile->update(array_merge(
+            $data,
+            ['image' => $imagePath]
+        ));
+
         return redirect("/profile/{$user->id}");
     }
 }
