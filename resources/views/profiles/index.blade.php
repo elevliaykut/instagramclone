@@ -18,11 +18,10 @@
                 <div class="pr-5"><strong>278</strong> following</div>
             </div>
             <div>
-                <div class="pt-2 pb-2"><strong>Aykut Elevli</strong></div>
-                <div>- Lublin University Of Technology</div>
-                <div>- Computer Engineering</div>
-                <div>- Citizen of the world 🇹🇷🇳🇱🇫🇷🇧🇪🇩🇪🇭🇺🇸🇰🇵🇹🇪🇸🇦🇹🇱🇹🇳🇴🇺🇦🇨🇿</div>
-                <div><a href="https://aykutelevli.me/">aykutelevli.me</a></div>
+                <div class="pt-2 pb-2"><strong>{{ $user->name }}</strong></div>
+                <div>{{ $user->profile->title }}</div>
+                <div>{{ $user->profile->description }}</div>
+                <div><a href="https://aykutelevli.me/">{{$user->profile->url}}</a></div>
             </div>
         </div>
         <div class="row pt-5">
