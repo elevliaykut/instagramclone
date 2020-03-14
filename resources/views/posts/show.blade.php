@@ -8,6 +8,15 @@
         </div>
         <div class="col-4">
             <div>
+                <div>
+                    <div>
+                        <img src="/storage/{{ $post->user->profile->image }}" class="rounded-circle w-25">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div>
                 <h3>{{ $post->user->username }}</h3>
                 <p>{{ $post->caption }}</p>
             </div>
