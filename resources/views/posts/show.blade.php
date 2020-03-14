@@ -13,13 +13,25 @@
                         <img src="/storage/{{ $post->user->profile->image }}" class="rounded-circle w-100" style="max-width: 50px">
                     </div>
                     <div>
-                        <p class="font-weight-bold"> {{ $post->user->username }}</p>
+                        <div class="font-weight-bold">
+                            <a href="/profile/{{ $post->user->id }}">
+                                <span class="text-dark">
+                                    {{ $post->user->username }}
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <hr>
 
-                <p><span class="font-weight-bold"><a href="/profile/{{ $post->user->id }}">{{ $post->user->username }}</a></span> {{ $post->caption }}</p>
+                <p>
+                    <span class="font-weight-bold">
+                        <a href="/profile/{{ $post->user->id }}">
+                            <span class="text-dark">{{ $post->user->username }}</span>
+                        </a>
+                    </span> {{ $post->caption }}
+                </p>
 
             </div>
         </div>
