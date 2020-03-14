@@ -19,6 +19,9 @@
                                     {{ $post->user->username }}
                                 </span>
                             </a>
+                            <a href="#" class="pl-3">
+                                Follow
+                            </a>
                         </div>
                     </div>
                 </div>
