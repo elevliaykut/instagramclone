@@ -66,4 +66,10 @@ Technologies used;
         DB_USERNAME=username
         DB_PASSWORD=password
 
+- After setting the environment, run the build.sh
+
+        sh buiild.sh
+
+and you're all done! You have startted the server on http://127.0.0.1:8000/
+
 <hr></hr>
