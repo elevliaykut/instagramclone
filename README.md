@@ -16,4 +16,10 @@ Technologies used;
 
 ✔️ Laravel Passport for authentication
 
+✔️ Laravel Pagination to list posts
+
+<hr></hr>
+
+<img src="./images/screenshot-1.jpg" width="100%" height="400"/>
+
 <hr></hr>
