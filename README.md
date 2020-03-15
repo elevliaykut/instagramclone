@@ -43,3 +43,27 @@ Technologies used;
 </p>
 
 <hr></hr>
+
+### Installation
+
+- Clone the repository and go to project directory.
+
+        git clone https://github.com/elevliaykut/instagramclone.git
+
+        cd instagramclone
+
+- Rename .env.example to .env
+
+- Connect to MySQL and create a database.
+
+        mysql -u root -p
+
+        create database 'instagramclone'
+
+- Update the .env file with database connection details.
+
+        DB_DATABASE=instagramclone
+        DB_USERNAME=username
+        DB_PASSWORD=password
+
+<hr></hr>
