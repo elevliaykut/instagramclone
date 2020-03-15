@@ -20,6 +20,6 @@ Technologies used;
 
 <hr></hr>
 
-<img src="./images/screenshot-1.jpg" width="100%" height="400"/>
+<img src="./images/screenshot-1.JPG" width="80%" height="35%"/>
 
 <hr></hr>
