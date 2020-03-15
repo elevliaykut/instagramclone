@@ -1,4 +1,4 @@
-### Instagram Application
+### Instagram Application 🎉
 
 <hr></hr>
 
@@ -68,7 +68,7 @@ Technologies used;
 
 - After setting the environment, run the build.sh
 
-        sh buiild.sh
+        sh build.sh
 
 and you're all done! You have startted the server on http://127.0.0.1:8000/
 
