@@ -13,10 +13,12 @@ class ProfilesController extends Controller
     public function index(User $user)
     {
         // if user authentication to system show following method
-        $follows = (auth()->user()) ? auth()->user()->following->contains($user) : false;
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+        //dd($follows);
 
         // passing user variables with compact to index.blade.php
-        return view('profiles/index', compact('user', $follows));
+        return view('profiles/index', compact('user', 'follows'));
     }
 
     public function edit(User $user)
