@@ -22,7 +22,7 @@ class PostsController extends Controller
 
         // dd($posts);
 
-        return view('posts.index', compact('post'));
+        return view('posts.index', compact('posts'));
 
     }
 
