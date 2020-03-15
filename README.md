@@ -15,3 +15,5 @@ Technologies used;
 ✔️ Mysql 5.7.12 for database management
 
 ✔️ Laravel Passport for authentication
+
+<hr></hr>
