@@ -16,21 +16,33 @@ class ProfilesController extends Controller
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
         $postsCount = Cache::remember(
-            'count.posts' .$user->id,
+            'count.posts.' . $user->id,
             now()->addSeconds(30),
             function () use ($user) {
                 return $user->posts->count();
             }
         );
 
-        $followersCount = $user->profile->following->count();
+        $followersCount = Cache::remember(
+            'count.followers.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                return $user->profile->followers->count();
+            }
+        );
 
-        $followingCount = $user->following->count();
+        $followingCount = Cache::remember(
+            'count.following.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                return $user->following->count();
+            }
+        );
 
         //dd($follows);
 
         // passing user variables with compact to index.blade.php
-        return view('profiles/index', compact('user', 'follows','postsCount','followersCount','followingCount'));
+        return view('profiles/index', compact('user', 'follows', 'postsCount', 'followersCount', 'followingCount'));
     }
 
     public function edit(User $user)
@@ -66,8 +78,8 @@ class ProfilesController extends Controller
         */
 
         if (request('image')) {
-            $imagePath = request('image')->store('profile','public');
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
+            $imagePath = request('image')->store('profile', 'public');
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
             $image->save();
 
             $imageArray = ['image' => $imagePath];
