@@ -30,4 +30,8 @@ Technologies used;
     <img  src="./images/screenshot-2.JPG" width="80%" height="35%"/>
 </p>
 
+<p align="center">
+    <img  src="./images/screenshot-3.JPG" width="80%" height="35%"/>
+</p>
+
 <hr></hr>
