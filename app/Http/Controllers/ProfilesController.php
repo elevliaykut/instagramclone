@@ -15,10 +15,16 @@ class ProfilesController extends Controller
         // if user authentication to system show following method
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
+        $postsCount = $user->posts->count();
+
+        $followersCount = $user->profile->following->count();
+
+        $followingCount = $user->following->count();
+
         //dd($follows);
 
         // passing user variables with compact to index.blade.php
-        return view('profiles/index', compact('user', 'follows'));
+        return view('profiles/index', compact('user', 'follows','postsCount','followersCount','followingCount'));
     }
 
     public function edit(User $user)
