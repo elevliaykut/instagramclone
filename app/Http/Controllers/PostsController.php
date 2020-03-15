@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 use Intervention\Image\Facades\Image;
@@ -12,10 +13,24 @@ class PostsController extends Controller
     {
         $this->middleware('auth'); //need to authorization
     }
+
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+
+        $posts = Post::whereIn('user_id',$users)->latest()->get();
+
+        // dd($posts);
+
+        return view('posts.index', compact('post'));
+
+    }
+
     public function create()
     {
         return view('posts.create');
     }
+
     public function store()
     {
         $data = request()->validate([
@@ -25,7 +40,7 @@ class PostsController extends Controller
 
         $imagePath = request('image')->store('uploads', 'public'); //store image under the path: store/public/uploads
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
         $image->save();
 
         auth()->user()->posts()->create([
@@ -35,10 +50,10 @@ class PostsController extends Controller
 
         // dd(request()->all()); // see all data from form in the array.
 
-        return redirect('/profile/' .auth()->user()->id); // redirect url
+        return redirect('/profile/' . auth()->user()->id); // redirect url
     }
 
-    public function show(\App\Post $post)   
+    public function show(\App\Post $post)
     {
         // passing posts variables to show.blade.php with compact
 
